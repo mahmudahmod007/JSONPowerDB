@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>JSONPowerDB</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="http://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+
+    </head>
+    <body>
+        <h1 align="center">Remove Data</h1>
+<input id="empId" maxlength="50" placeholder="Employee ID" name=empId" type="text" /><br><br>
+        <input type="button" value="DELETE DATA" onclick="deleteData();"/>
+    <p id="show"></p>
+    <script>
+    
+        function deleteData(){
+            var token = "90938433|-31948827962772366|90947268";
+            var dbname = "SAMPLE";
+            var relationName = "EMP-REL";
+            var id = document.getElementById("empId").value;
+
+            var reqString = createREMOVERecordRequest(token, dbname, relationName, id);
+            alert(reqString);
+            jQuery.ajaxSetup({async: false});
+            var resultObj = executeCommandAtGivenBaseUrl(reqString,
+                    "http://api.login2explore.com:5577", "/api/iml");
+            jQuery.ajaxSetup({async: true});
+            alert(JSON.stringify(resultObj));
+            
+        }
+    </script>
+    </body>
+</html>

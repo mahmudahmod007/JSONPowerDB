@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>JSONPowerDB</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="http://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+    </head>
+    <body>
+        <div class="container">
+    <h1 align="center">Fetch Data</h1>
+    <input id="empName" maxlength="50" placeholder="Employee Name" name="empName" type="text" /><br><br>
+        <input type="button" value="Fetch data" onclick="fetchData();"/>
+    <p id="show"></p>
+</div>
+    <script>
+
+
+        function fetchData(){
+            var token = "90938433|-31948827962772366|90947268";
+            var dbname = "SAMPLE";
+            var relationName = "EMP-REL";
+            var name = document.getElementById("empName").value;
+            var jsonStr = {
+                empName : name
+            };
+            var reqString = createGETRequest(token, dbname, relationName, JSON.stringify(jsonStr));
+            alert(reqString);
+            jQuery.ajaxSetup({async: false});
+            var resultObj = executeCommandAtGivenBaseUrl(reqString,
+                    "http://api.login2explore.com:5577", "/api/irl");
+            jQuery.ajaxSetup({async: true});
+            
+            var data = JSON.stringify(resultObj);
+            console.log(data);
+            
+            document.getElementById("show").innerHTML = data;
+        }
+    </script>
+    </body>
+</html>
