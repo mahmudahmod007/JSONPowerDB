@@ -19,3 +19,7 @@
 
 ![Dashboard Image](https://github.com/mahmudahmod007/JSONPowerDB/blob/main/Screenshots/Dashboard.jpg)
 
+![PUT Image](https://github.com/mahmudahmod007/JSONPowerDB/blob/main/Screenshots/PUT.jpg)
+
+![Vizualize Image](https://github.com/mahmudahmod007/JSONPowerDB/blob/main/Screenshots/Visualize.jpg)
+
