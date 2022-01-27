@@ -17,4 +17,5 @@
 
 ### Screenshots
 
+![Dashboard Image](https://github.com/mahmudahmod007/JSONPowerDB/blob/main/Screenshots/Dashboard.jpg)
 
